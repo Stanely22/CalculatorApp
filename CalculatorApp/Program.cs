@@ -26,13 +26,13 @@ switch (op)
             result = subtractOp(aVal,bVal);
             break;
         case "*":
-            result = addOp(aVal,bVal);
+            result = multiplyOp(aVal,bVal);
             break;
         case "/":
-            result = addOp(aVal,bVal);
+            result = divideOp(aVal,bVal);
             break;
         case "^":
-            result = addOp(aVal,bVal);
+            result = powerOp(aVal,bVal);
             break;
 default:
         break;
@@ -53,7 +53,12 @@ double multiplyOp(double a, double b)
     return a * b;
 }
 
-double squareOp(double a, double b)
+double divideOp(double a, double b)
+{
+    return a / b;
+}
+
+double powerOp(double a, double b)
 {
     return Math.Pow(a, b);
 }
