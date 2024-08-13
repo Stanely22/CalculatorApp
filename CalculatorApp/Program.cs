@@ -1,5 +1,4 @@
-﻿using System.Numerics;
-
+﻿
 double aVal, bVal, result;
 
 Console.WriteLine("-----------------");
@@ -10,8 +9,10 @@ string a = Console.ReadLine();
 Console.WriteLine("b=");
 string b = Console.ReadLine();
 
-if (double.TryParse(a, out aVal) == false | double.TryParse(b, out bVal) )
-    { Console.WriteLine("invalid input"); }
+if (double.TryParse(a, out aVal) == false | double.TryParse(b, out bVal) == false )
+    { Console.WriteLine("invalid input");
+    return;
+}
 
 
 Console.WriteLine("Select operation: +,-,*,/,^ ");
@@ -20,19 +21,19 @@ string op = Console.ReadLine();
 switch (op)
 {
         case "+":
-            result = addOp(aVal,bVal);
+            result = AddOp(aVal,bVal);
             break;
         case "-":
-            result = subtractOp(aVal,bVal);
+            result = SubtractOp(aVal,bVal);
             break;
         case "*":
-            result = multiplyOp(aVal,bVal);
+            result = MultiplyOp(aVal,bVal);
             break;
         case "/":
-            result = divideOp(aVal,bVal);
+            result = DivideOp(aVal,bVal);
             break;
         case "^":
-            result = powerOp(aVal,bVal);
+            result = PowerOp(aVal,bVal);
             break;
 default:
         Console.WriteLine("Invalid operation selected");
@@ -42,22 +43,22 @@ default:
 result = Math.Round(result);
 Console.WriteLine("the result of the {0} {1} {2} operation is {3}",a,op,b, result);
 
-double addOp(double a, double b)
+double AddOp(double a, double b)
 {
     return a + b;
 }
 
-double subtractOp(double a, double b)
+double SubtractOp(double a, double b)
 {
     return a - b;
 }
 
-double multiplyOp(double a, double b)
+double MultiplyOp(double a, double b)
 {
     return a * b;
 }
 
-double divideOp(double a, double b)
+double DivideOp(double a, double b)
 {
     if( b == 0)
     {
@@ -66,7 +67,7 @@ double divideOp(double a, double b)
     return a / b;
 }
 
-double powerOp(double a, double b)
+double PowerOp(double a, double b)
 {
     return Math.Pow(a, b);
 }
