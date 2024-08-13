@@ -35,8 +35,12 @@ switch (op)
             result = powerOp(aVal,bVal);
             break;
 default:
+        Console.WriteLine("Invalid operation selected");
+        result = double.NaN;
         break;
 }
+result = Math.Round(result);
+Console.WriteLine("the result of the {0} {1} {2} operation is {3}",a,op,b, result);
 
 double addOp(double a, double b)
 {
@@ -55,6 +59,10 @@ double multiplyOp(double a, double b)
 
 double divideOp(double a, double b)
 {
+    if( b == 0)
+    {
+        throw new DivideByZeroException("Division by 0 is not valid");
+    }
     return a / b;
 }
 
